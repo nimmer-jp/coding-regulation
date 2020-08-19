@@ -27,7 +27,7 @@
 ### インデント
 1レベルインデントするごとに2つのスペース(`\x20`)を使います。
 括弧(`()`)やブラケット(`[]`)、波括弧(`{}`)で囲まれた部分を改行する場合は、各行の要素の先頭を手で揃えます。
-始めの行以外をインデントするやり方(以降、突き出しインデントとします)の場合は、はじめの行が開き括弧(`(`、`[`、`{`)以外で終わってはならず、また、次の行以降は1レベルのインデントを入れます。加えて、閉じ括弧(`)`、`]`、`}`)の前では改行するべきではありません。
+始めの行以外をインデントするやり方(以降、突き出しインデントとします)の場合は、はじめの行が開き括弧(`(`、`[`、`{`)以外で終わってはならず、また、次の行以降は1レベルのインデントを入れます。加えて、閉じ括弧(`)`、`]`、`}`)の前で改行します。
 仮引数のリストにおいて突き出しインデントを採用する場合や、条件文を改行する場合は、1レベルさらにインデントを追加します。
 
 ```nim
@@ -40,7 +40,8 @@ let shortName = ("Lorem ipsum dolor sit amet",
 let muchMuchLongName = (
   "Lorem ipsum dolor sit amet",
   "consectetur adipiscing elit",
-  1, 2, 3, 4, 5)
+  1, 2, 3, 4, 5
+)
 
 
 proc someProc(arg1: int,
@@ -53,7 +54,8 @@ proc someProc(arg1: int,
 proc farMoreLongNameProc(
     arg1: int,
     arg2: string,
-    arg3: float) =
+    arg3: float
+) =
   discard
   # or do something
 
@@ -61,14 +63,12 @@ proc farMoreLongNameProc(
 # 正しくない
 let badExample = ("Lorem ipsum dolor sit amet",
   "consectetur adipiscing elit",　# ✗ 先頭が揃っていません。
-  1, 2, 3, 4, 5
-)                                 # ✗ 閉じ括弧の前では改行してはいけません。
+  1, 2, 3, 4, 5)                  # ✗ 閉じ括弧の前に改行する必要があります。
 
 
 proc badParameterArrangeProcOne(arg1: int,
-  arg2: string, # ✗ 先頭が揃っていません。
-  arg3: float
-) =             # ✗ 閉じ括弧の前では改行してはいけません。
+  arg2: string,  # ✗ 先頭が揃っていません。
+  arg3: float) = # ✗ 閉じ括弧の前に改行する必要があります。
   discard
   # or do something
 
@@ -76,7 +76,8 @@ proc badParameterArrangeProcOne(arg1: int,
 proc badParameterArrangeProcTwo(
   arg1: int, # ✗ 追加で1レベルインデントする必要があります。
   arg2: string,
-  arg3: float) =
+  arg3: float
+) =
   discard
   # or do something
 ```
