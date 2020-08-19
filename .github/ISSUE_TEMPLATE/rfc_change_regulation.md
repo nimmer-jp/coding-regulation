@@ -2,7 +2,7 @@
 name: "RFC: 既存のコーディング規約の変更"
 about: 既存のコーディング規約を変更したい場合に利用するテンプレートです。
 title: 'RFC: <issueタイトル>'
-labels: RFC, "change proposal"
+labels: RFC, change proposal
 
 ---
 
